@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, My Love!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            color: #fff;
+            background: url('https://wallpaperaccess.com/full/1846477.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            /* Slightly darkened overlay */
+            filter: blur(3px);
+            z-index: -1;
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 4em;
+            margin-top: 70px;
+            animation: fadeIn 2s ease-in-out;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            font-family: 'Great Vibes', cursive;
+        }
+
+        h2 {
+            color: #ff4b4b;
+            font-size: 3em;
+            margin-bottom: 30px;
+            animation: fadeIn 3s ease-in-out;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .name {
+            font-size: 2.5em;
+            color: #ff8787;
+            margin-bottom: 50px;
+            animation: fadeIn 4s ease-in-out;
+            font-style: italic;
+            text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+        }
+
+        .heart {
+            color: #ff2e63;
+            font-size: 4em;
+            animation: beat 1s infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            transform-origin: center center;
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .heart:hover {
+            transform: scale(1.3);
+        }
+
+        @keyframes beat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .love-emojis {
+            font-size: 3em;
+            animation: floatUp 5s infinite;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .gifs-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .gifs-container img {
+            width: 220px;
+            height: auto;
+            border-radius: 12px;
+            animation: zoomIn 1.5s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .gifs-container img:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        /* Falling hearts */
+        .heart-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart-animation {
+            position: absolute;
+            width: 3em;
+            height: 3em;
+            font-size: 3em;
+            color: #ff6fa3;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                top: -10%;
+                transform: rotate(0deg);
+            }
+
+            to {
+                top: 110%;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Memory Section */
+        .memory-section {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9); /* Slightly lighter background */
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 4s ease-in-out;
+            color: #b30000;
+            margin: 25px auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .memory-section h3 {
+            color: #d10000;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.8); /* Light background for photo gallery */
+            border-radius: 15px;
+            padding: 15px;
+        }
+
+        .photo-gallery img {
+            width: 220px;
+            height: auto;
+            border-radius: 20px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-gallery img:hover {
+            transform: scale(1.2);
+        }
+
+        .memory-gifs {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .memory-gifs img {
+            width: 170px;
+            height: auto;
+            border-radius: 12px;
+            animation: zoomIn 1.5s ease-in-out;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .memory-gifs img:hover {
+            transform: scale(1.2);
+        }
+
+        /* Romantic Photos Section */
+        .romantic-photos {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9); /* Slightly lighter background */
+            border-radius: 25px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            color: #b30000;
+            margin: 25px auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        .romantic-photos h3 {
+            color: #d10000;
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .romantic-photos .photo {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .romantic-photos img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .romantic-photos img:hover {
+            transform:scale(1.2);
+        }
+
+        .romantic-photos .description {
+            font-size: 1.5em;
+            margin-top: 15px;
+            font-style: italic;
+            color: #e63946;
+            /* Soft romantic red */
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            line-height: 1.6;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.8);
+            /* Soft white background */
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .romantic-photos .row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .romantic-photos .row .photo {
+            flex: 1;
+            max-width: 45%;
+        }
+
+        .romantic-photos .centered-photo {
+            margin: 25px auto;
+            max-width: 60%;
+        }
+
+        /* Audio Player */
+        .audio-player {
+            margin: 25px auto;
+            max-width: 600px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Happy Birthday, My Love!</h1>
+    <h2>To My Dearest Akhil💖</h2>
+
+    <div class="name">on your special day and always,i cherish,honor,and love you!💝</div>
+
+    <div class="love-emojis">
+        😘 😍 🥰 💋 💝
+    </div>
+
+    <div class="heart">❤</div>
+
+    <div class="gifs-container">
+        <img src="https://media.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif" alt="Happy Birthday">
+        <img src="https://media.giphy.com/media/dwI09ZWZ93gIt7uhQm/giphy.gif" alt="Love You">
+    </div>
+
+    <!-- Memory Section -->
+    <div class="memory-section">
+        <h3>Our Most Memorable Moments</h3>
+        <div class="photo-gallery">
+            <!-- Replace these image URLs with your own photos -->
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\hfd.jpg" alt="Memory 1">
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\pic.jpg" alt="Memory 2">
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\pic2.jpg" alt="Memory 3">
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\pic3.jpg" alt="Memory 4">
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\th.jpg" alt="Memory 5">
+        </div>
+        <div class="memory-gifs">
+            <img src="https://media.giphy.com/media/26FLdmIp6wJr91JAI/giphy.gif" alt="Memorable GIF 1">
+            <img src="https://media.giphy.com/media/ifB1v1W3Db0GIW7uTA/giphy.gif" alt="Memorable GIF 2">
+        </div>
+    </div>
+
+    <!-- Romantic Photos Section -->
+    <div class="romantic-photos">
+        <h3>my special wishes kanna</h3>
+        <div class="row">
+            <div class="photo">
+                <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\hfh.jpg" alt="Romantic Moment 1">
+                <div class="description">"Happy birthday to an incredible programmer and an even more extraordinary
+                    partner! As Steve Jobs wisely said, 'Innovation distinguishes between a leader and a follower.' You,
+                    my love, are the epitome of a true leader—your creativity and passion never cease to amaze me. I'm
+                    so proud of everything you achieve, and I can't wait to see what you create next. Here's to another
+                    year filled with love, laughter, and endless coding adventures together. I love you more with each
+                    passing day!"</div>
+            </div>
+            <div class="photo">
+                <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\picc.jpg" alt="Romantic Moment 2">
+                <div class="description">My programmer ninja,
+
+                    You're the Naruto to my Hinata, the one who brings out the best in me. Your code is like a beautiful
+                    ninjutsu, elegant and powerful.
+
+                    Just as Hinata believes in Naruto, I believe in you, your skills, and your passion. Together, let's
+                    create something amazing, something that will change the world.
+
+                    I love you more than words can express, more than any code can convey.
+
+                    Yours always,
+                    <br>
+                    <b>Siri</b>.
+                </div>
+            </div>
+        </div>
+        <div class="photo centered-photo">
+            <img src="C:\Users\SIDDIGALLA DIVYASREE\Documents\thgg.jpg" alt="Romantic Moment 3">
+            <div class="description">"Happy birthday to my partner in every sense! Just like our roll numbers, 45 and
+                47, we may be consecutive but unique, yet together we create a perfect sequence. Here's to another year
+                of love, laughter, and making more memories together! May your day be as special as you are to me."
+
+
+
+                "On your special day, I want to remind you that just as 45 and 47 are special numbers in our lives, our
+                bond is one-of-a-kind. Here's to celebrating another year of adventures, inside jokes, and making more
+                unforgettable moments together! Happy birthday, <i></i><b>my love!</b> "</div>
+        </div>
+    </div>
+
+    <!-- Falling hearts -->
+    <div class="heart-container"></div>
+
+    <!-- Local audio player -->
+    <div class="audio-player">
+        <audio controls autoplay>
+            <source src="C:\Users\SIDDIGALLA DIVYASREE\Documents\_Amani_Ruthuvu_Instrumental_Bgm_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <script>
+        // Generate falling hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-animation');
+            heart.textContent = '💖';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.querySelector('.heart-container').appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+
+        // Add interactivity to the heart element
+        document.querySelector('.heart').addEventListener('click', () => {
+            const player = document.querySelector('.audio-player');
+            player.style.display = 'block'; // Show the local audio player
+            document.querySelector('audio').autoplay();
+            alert('I love you kanna! Happy Birthday!');
+        });
+    </script>
+
+</body>
+
+</html>
